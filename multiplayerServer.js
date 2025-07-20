@@ -342,7 +342,7 @@ class MultiplayerServer {
 
     cleanupInactivePlayers(now) {
         for (const [playerId, player] of this.players.entries()) {
-            if (now - player.lastUpdate > 30000) { // 30 segundos
+            if (now - player.lastUpdate > 60000) { // 60 segundos
                 console.log(`Removendo jogador inativo: ${player.name}`);
                 this.players.delete(playerId);
                 this.io.emit('player-left', { playerId });
